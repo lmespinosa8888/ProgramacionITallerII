@@ -1,8 +1,23 @@
+MAX_TITULO_LEN = 100
+MAX_AUTOR_LEN = 60
+MAX_ISBN_LEN = 20
+
+
+def validar_texto_corto(valor: str, campo: str, max_len: int) -> str:
+    if not isinstance(valor, str):
+        raise TypeError(f"{campo} debe ser una cadena de texto")
+    if len(valor.strip()) == 0:
+        raise ValueError(f"{campo} no puede estar vacío")
+    if len(valor) > max_len:
+        raise ValueError(f"{campo} no puede superar {max_len} caracteres")
+    return valor
+
+
 class Libro:
     def __init__(self, titulo: str, autor: str, isbn: str):
-        self.titulo = titulo
-        self.autor = autor
-        self.isbn = isbn
+        self.titulo = validar_texto_corto(titulo, "Título", MAX_TITULO_LEN)
+        self.autor = validar_texto_corto(autor, "Autor", MAX_AUTOR_LEN)
+        self.isbn = validar_texto_corto(isbn, "ISBN", MAX_ISBN_LEN)
         self.disponible = True
 
     def prestar(self) -> bool:

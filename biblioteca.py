@@ -1,10 +1,22 @@
 from libro import Libro
 from usuario import Usuario
 
+MAX_NOMBRE_LEN = 80
+
+
+def validar_texto_corto(valor: str, campo: str, max_len: int) -> str:
+    if not isinstance(valor, str):
+        raise TypeError(f"{campo} debe ser una cadena de texto")
+    if len(valor.strip()) == 0:
+        raise ValueError(f"{campo} no puede estar vacío")
+    if len(valor) > max_len:
+        raise ValueError(f"{campo} no puede superar {max_len} caracteres")
+    return valor
+
 
 class Biblioteca:
     def __init__(self, nombre: str):
-        self.nombre = nombre
+        self.nombre = validar_texto_corto(nombre, "Nombre", MAX_NOMBRE_LEN)
         self.libros = []
         self.usuarios = []
 
