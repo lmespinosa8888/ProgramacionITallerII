@@ -1,3 +1,8 @@
+"""Módulo de la clase Libro.
+
+Define los atributos y comportamientos de un libro en la biblioteca.
+"""
+
 MAX_TITULO_LEN = 100
 MAX_AUTOR_LEN = 60
 MAX_ISBN_LEN = 20

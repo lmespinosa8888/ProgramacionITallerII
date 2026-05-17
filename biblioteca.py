@@ -1,3 +1,8 @@
+"""Módulo de la clase Biblioteca.
+
+Este módulo define la clase `Biblioteca`, que representa una biblioteca con libros y usuarios.
+"""
+
 from libro import Libro
 from usuario import Usuario
 
@@ -15,6 +20,8 @@ def validar_texto_corto(valor: str, campo: str, max_len: int) -> str:
 
 
 class Biblioteca:
+    """Representa una biblioteca con libros y usuarios."""
+
     def __init__(self, nombre: str):
         self.nombre = validar_texto_corto(nombre, "Nombre", MAX_NOMBRE_LEN)
         self.libros = []

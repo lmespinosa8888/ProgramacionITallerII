@@ -1,3 +1,8 @@
+"""Módulo de la clase Usuario.
+
+Define los atributos y acciones de un usuario de la biblioteca.
+"""
+
 from libro import Libro
 
 MAX_NOMBRE_LEN = 50
